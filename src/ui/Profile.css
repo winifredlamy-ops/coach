@@ -70,12 +70,12 @@
 
 .stats-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	gap: 12px;
 }
 
 .stat-item {
-	padding: 16px 12px;
+	padding: 12px 8px;
 	text-align: center;
 }
 
@@ -87,14 +87,14 @@
 }
 
 .stat-value {
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: 700;
 	color: var(--fg);
 	margin-bottom: 4px;
 }
 
 .stat-label {
-	font-size: 12px;
+	font-size: 10px;
 	color: var(--muted);
 }
 

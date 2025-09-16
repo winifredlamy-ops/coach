@@ -31,6 +31,11 @@ const stats: StatItem[] = [
 		icon: <IconDollar />
 	},
 	{
+		label: '本日课程',
+		value: '3节',
+		icon: <IconCalendar />
+	},
+	{
 		label: '本月课程',
 		value: '45节',
 		icon: <IconCalendar />
@@ -83,20 +88,6 @@ export const Profile: React.FC = () => {
 				</div>
 			</div>
 
-			<div className="contact-info card">
-				<div className="contact-item">
-					<IconPhone />
-					<span>13800138888</span>
-				</div>
-				<div className="contact-item">
-					<IconMail />
-					<span>zhang.coach@example.com</span>
-				</div>
-				<div className="contact-item">
-					<IconMapPin />
-					<span>TT网球中心 (南山店)</span>
-				</div>
-			</div>
 
 			<div className="stats-section">
 				<h3>数据统计</h3>
