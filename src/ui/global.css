@@ -1,0 +1,187 @@
+/* 全局CSS变量和通用样式 */
+:root {
+	--bg: #f5f6f8;
+	--fg: #222222;
+	--muted: #8a8f98;
+	--primary: #2dac6d;
+	--secondary: #ff6b35;
+	--border: #e6e8eb;
+	--card-bg: #ffffff;
+	--danger: #e74c3c;
+	--warning: #f39c12;
+	--success: #27ae60;
+}
+
+/* 全局重置样式 */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+	background: var(--bg);
+	color: var(--fg);
+	font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.4;
+}
+
+/* 通用卡片样式 */
+.card {
+	background: var(--card-bg);
+	border-radius: 12px;
+	border: 1px solid var(--border);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+	margin: 8px 0;
+	overflow: hidden;
+	transition: all 0.2s ease;
+}
+
+.card:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 通用页面样式 */
+.page {
+	padding: 12px 16px;
+	padding-bottom: 100px;
+}
+
+.page-title {
+	font-size: 24px;
+	font-weight: 600;
+	margin: 0 0 16px 0;
+	color: var(--fg);
+}
+
+/* 通用按钮样式 */
+.btn {
+	padding: 12px 24px;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+.btn-primary {
+	background: var(--primary);
+	color: white;
+}
+
+.btn-primary:hover {
+	background: #249959;
+}
+
+.btn-secondary {
+	background: var(--secondary);
+	color: white;
+}
+
+.btn-secondary:hover {
+	background: #e55a2b;
+}
+
+.btn-outline {
+	background: transparent;
+	color: var(--primary);
+	border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+	background: var(--primary);
+	color: white;
+}
+
+/* 输入框样式 */
+.input {
+	width: 100%;
+	padding: 12px 16px;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	font-size: 16px;
+	background: var(--card-bg);
+	transition: border-color 0.2s ease;
+}
+
+.input:focus {
+	outline: none;
+	border-color: var(--primary);
+}
+
+/* 状态标签样式 */
+.status {
+	padding: 4px 12px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 500;
+	display: inline-block;
+}
+
+.status-pending {
+	background: #fff3cd;
+	color: #856404;
+}
+
+.status-confirmed {
+	background: #d4edda;
+	color: #155724;
+}
+
+.status-cancelled {
+	background: #f8d7da;
+	color: #721c24;
+}
+
+/* 通用工具类 */
+.muted {
+	color: var(--muted);
+}
+
+.text-center {
+	text-align: center;
+}
+
+.mb-16 {
+	margin-bottom: 16px;
+}
+
+.mt-16 {
+	margin-top: 16px;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.gap-8 {
+	gap: 8px;
+}
+
+.gap-16 {
+	gap: 16px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+	.page {
+		padding: 12px;
+	}
+}

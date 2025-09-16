@@ -1,0 +1,342 @@
+/* Home组件相关样式 */
+.home-page {
+	padding: 0;
+	background: #f5f5f5;
+}
+
+/* TT Tennis 品牌展示区域 */
+.brand-header {
+	background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+	padding: 60px 20px 40px;
+	text-align: center;
+	color: white;
+	position: relative;
+}
+
+.brand-logo {
+	margin-bottom: 20px;
+}
+
+.logo-circle {
+	width: 80px;
+	height: 80px;
+	background: white;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo-text {
+	font-size: 36px;
+	font-weight: bold;
+	color: #4CAF50;
+}
+
+.brand-title h1 {
+	font-size: 32px;
+	font-weight: 300;
+	letter-spacing: 2px;
+	margin: 0 0 8px 0;
+	color: white;
+}
+
+.brand-subtitle {
+	font-size: 14px;
+	opacity: 0.9;
+	font-style: italic;
+	margin: 0;
+}
+
+.indicator-dots {
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+	margin-top: 20px;
+}
+
+.dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.4);
+	transition: all 0.3s ease;
+}
+
+.dot.active {
+	background: white;
+	transform: scale(1.2);
+}
+
+/* 场地信息卡片 */
+.venue-card {
+	background: white;
+	margin: -20px 16px 16px;
+	border-radius: 12px;
+	padding: 16px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+	position: relative;
+	z-index: 10;
+}
+
+.venue-header {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.venue-logo {
+	width: 48px;
+	height: 48px;
+	background: #4CAF50;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	flex-shrink: 0;
+}
+
+.venue-info h2 {
+	font-size: 18px;
+	font-weight: 600;
+	margin: 0 0 4px 0;
+	color: #333;
+	text-align: left;
+}
+
+.dropdown-arrow {
+	color: #FF9800;
+	font-size: 12px;
+}
+
+.venue-line {
+	font-size: 14px;
+	color: #666;
+	margin: 0;
+}
+
+.contact-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+	font-size: 14px;
+}
+
+.phone-section {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.contact-label {
+	color: #666;
+}
+
+.phone-number {
+	color: #333;
+	font-weight: 600;
+}
+
+.phone-icon, .location-icon {
+	color: #666;
+	width: 16px;
+	height: 16px;
+}
+
+.address-section {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex: 1;
+	justify-content: flex-end;
+}
+
+.address-text {
+	color: #333;
+	max-width: 200px;
+	text-align: right;
+	font-size: 12px;
+}
+
+/* 设施信息 */
+.facility-tags {
+	border-top: 1px solid #f0f0f0;
+	padding-top: 16px;
+}
+
+.facility-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-bottom: 12px;
+	font-size: 14px;
+}
+
+.facility-row:last-child {
+	margin-bottom: 0;
+}
+
+.facility-label {
+	padding: 4px 8px;
+	border-radius: 12px;
+	font-size: 12px;
+	font-weight: 600;
+	flex-shrink: 0;
+}
+
+.facility-label.interior {
+	background: #E8F5E8;
+	color: #4CAF50;
+}
+
+.facility-label.surrounding {
+	background: #E8F5E8;
+	color: #4CAF50;
+}
+
+.facility-text {
+	flex: 1;
+	color: #666;
+	line-height: 1.4;
+}
+
+.chevron-right {
+	color: #ccc;
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+}
+
+/* 操作按钮 */
+.action-buttons {
+	display: flex;
+	gap: 8px;
+	margin: 0 16px 16px;
+}
+
+.action-btn {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 4px;
+	padding: 12px 8px;
+	border: none;
+	border-radius: 8px;
+	background: white;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+	position: relative;
+	min-height: 80px;
+}
+
+.action-btn.book-court {
+	color: #4CAF50;
+}
+
+.action-btn.coach-booking {
+	color: #4CAF50;
+}
+
+.action-btn.new-customer {
+	color: #4CAF50;
+}
+
+.action-btn:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.btn-icon {
+	width: 24px;
+	height: 24px;
+	margin-bottom: 2px;
+}
+
+.btn-text {
+	font-size: 14px;
+	font-weight: 600;
+	color: #333;
+}
+
+.btn-subtitle {
+	font-size: 12px;
+	color: #999;
+	margin-top: 2px;
+}
+
+/* 卡券选择 */
+.card-selection {
+	background: white;
+	margin: 0 16px;
+	border-radius: 12px;
+	padding: 16px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.card-tabs {
+	display: flex;
+	gap: 0;
+	margin-bottom: 16px;
+	background: #f5f5f5;
+	border-radius: 8px;
+	padding: 4px;
+}
+
+.card-tabs .tab {
+	flex: 1;
+	padding: 12px 16px;
+	background: transparent;
+	border: none;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #666;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.card-tabs .tab.active {
+	background: white;
+	color: #4CAF50;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card-types {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 16px;
+	flex-wrap: wrap;
+}
+
+.card-type {
+	padding: 8px 16px;
+	background: #f5f5f5;
+	border: none;
+	border-radius: 20px;
+	font-size: 14px;
+	color: #666;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.card-type.active {
+	background: #4CAF50;
+	color: white;
+}
+
+.selected-card-title h3 {
+	font-size: 18px;
+	font-weight: 600;
+	color: #333;
+	margin: 0;
+}

@@ -1,0 +1,89 @@
+.create-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 24px;
+}
+
+.back-btn,
+.save-btn {
+	background: none;
+	border: none;
+	color: var(--primary);
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	transition: background-color 0.2s ease;
+}
+
+.back-btn:hover,
+.save-btn:hover {
+	background: rgba(45, 172, 109, 0.1);
+}
+
+.create-form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.form-section {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.form-label {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--fg);
+}
+
+.form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+
+.textarea {
+	resize: vertical;
+	min-height: 100px;
+	font-family: inherit;
+}
+
+.form-actions {
+	display: flex;
+	gap: 12px;
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid var(--border);
+}
+
+.form-actions .btn {
+	flex: 1;
+	padding: 14px 20px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+select.input {
+	appearance: none;
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right 12px center;
+	background-size: 16px;
+	padding-right: 40px;
+}
+
+@media (max-width: 480px) {
+	.form-row {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.form-actions {
+		flex-direction: column;
+	}
+}

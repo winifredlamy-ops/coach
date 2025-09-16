@@ -1,0 +1,143 @@
+.detail-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 24px;
+}
+
+.back-btn {
+	background: none;
+	border: none;
+	color: var(--primary);
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+	background: rgba(45, 172, 109, 0.1);
+}
+
+.booking-info {
+	padding: 20px;
+	margin-bottom: 24px;
+	position: relative;
+}
+
+.status-badge {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	padding: 4px 12px;
+	border-radius: 12px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.status-badge.pending {
+	background: rgba(243, 156, 18, 0.2);
+	color: var(--warning);
+}
+
+.booking-info h2 {
+	font-size: 20px;
+	font-weight: 600;
+	margin: 0 0 20px 0;
+	color: var(--fg);
+	padding-right: 80px;
+}
+
+.booking-details {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 20px;
+}
+
+.detail-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.detail-row:last-child {
+	border-bottom: none;
+}
+
+.label {
+	font-size: 14px;
+	color: var(--muted);
+}
+
+.value {
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--fg);
+}
+
+.value.price {
+	color: var(--secondary);
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.note-section {
+	border-top: 1px solid var(--border);
+	padding-top: 16px;
+}
+
+.note-section h3 {
+	font-size: 16px;
+	font-weight: 600;
+	margin: 0 0 8px 0;
+	color: var(--fg);
+}
+
+.note-section p {
+	margin: 0;
+	color: var(--muted);
+	line-height: 1.5;
+	background: var(--bg);
+	padding: 12px;
+	border-radius: 8px;
+	border-left: 3px solid var(--primary);
+}
+
+.actions {
+	display: flex;
+	gap: 12px;
+	margin-bottom: 24px;
+}
+
+.actions .btn {
+	flex: 1;
+	padding: 14px 20px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.cancel-btn {
+	color: var(--danger) !important;
+	border-color: var(--danger) !important;
+}
+
+.cancel-btn:hover {
+	background: var(--danger) !important;
+	color: white !important;
+}
+
+.placeholder {
+	text-align: center;
+	padding: 40px 20px;
+}
+
+@media (max-width: 480px) {
+	.actions {
+		flex-direction: column;
+	}
+}

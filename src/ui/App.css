@@ -1,0 +1,54 @@
+.app-root {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	max-width: 500px;
+	margin: 0 auto;
+	background: var(--bg);
+}
+
+.app-content {
+	flex: 1;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.tabbar {
+	display: flex;
+	background: var(--card-bg);
+	border-top: 1px solid var(--border);
+	padding: 8px 0;
+	box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+
+.tab {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 8px 4px;
+	text-decoration: none;
+	color: var(--muted);
+	font-size: 12px;
+	font-weight: 500;
+	transition: color 0.2s ease;
+	gap: 4px;
+}
+
+.tab:hover {
+	color: var(--primary);
+}
+
+.tab.active {
+	color: var(--primary);
+}
+
+.tab svg {
+	transition: transform 0.2s ease;
+}
+
+.tab:hover svg,
+.tab.active svg {
+	transform: scale(1.1);
+}
