@@ -17,6 +17,9 @@ const IconLogOut: React.FC = () => <Svg path="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 
 const IconDollar: React.FC = () => <Svg path="M12 1v22 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
 const IconCalendar: React.FC = () => <Svg path="M3 4h18v18H3z M3 10h18 M9 2v4 M15 2v4" />
 const IconChevronRight: React.FC = () => <Svg path="M9 18l6-6-6-6" />
+const IconClock: React.FC = () => <Svg path="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm5 11h-6V7h2v4h4Z" />
+const IconMessage: React.FC = () => <Svg path="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" />
+const IconHeadphones: React.FC = () => <Svg path="M3 14v-4a9 9 0 0 1 18 0v4M6 14h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2M18 14h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2" />
 
 interface StatItem {
 	label: string
@@ -57,9 +60,19 @@ interface MenuItem {
 export const Profile: React.FC = () => {
 	const menuItems: MenuItem[] = [
 		{
-			icon: <IconSettings />,
-			label: '设置',
-			action: () => console.log('设置')
+			icon: <IconClock />,
+			label: '设置上课时间段',
+			action: () => console.log('设置上课时间段')
+		},
+		{
+			icon: <IconMessage />,
+			label: '我的消息',
+			action: () => console.log('我的消息')
+		},
+		{
+			icon: <IconHeadphones />,
+			label: '联系客服',
+			action: () => console.log('联系客服')
 		},
 		{
 			icon: <IconHelpCircle />,
@@ -76,6 +89,9 @@ export const Profile: React.FC = () => {
 
 	return (
 		<div className="page">
+			<div className="mine-header">
+				<h1 className="page-title">我的</h1>
+			</div>
 			<div className="profile-header">
 				<div className="avatar-section">
 					<div className="avatar">
@@ -127,9 +143,6 @@ export const Profile: React.FC = () => {
 				</div>
 			</div>
 
-			<div className="profile-footer">
-				<p className="muted">版本 1.0.0</p>
-			</div>
 		</div>
 	)
 }

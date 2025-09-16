@@ -1,4 +1,31 @@
+.mine-header {
+	background: white;
+	padding: 14px 16px;
+	border-bottom: 1px solid #e5e7eb;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	height: 56px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+
+.mine-header .page-title {
+	font-size: 20px;
+	font-weight: 600;
+	color: #1f2937;
+	margin: 0;
+	text-align: center;
+}
+
+.page {
+	padding-top: 56px;
+}
+
 .profile-header {
+	margin-top: 60px;
 	margin-bottom: 24px;
 }
 
@@ -9,19 +36,19 @@
 }
 
 .avatar {
-	width: 80px;
-	height: 80px;
+	width: 60px;
+	height: 60px;
 	border-radius: 50%;
 	background: var(--primary);
 	color: white;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 32px;
+	font-size: 24px;
 }
 
 .coach-info h2 {
-	font-size: 24px;
+	font-size: 18px;
 	font-weight: 700;
 	margin: 0 0 4px 0;
 	color: var(--fg);
@@ -105,7 +132,7 @@
 .menu-list {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 2px;
 }
 
 .menu-item {
