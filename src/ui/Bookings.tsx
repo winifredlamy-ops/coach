@@ -12,6 +12,7 @@ const IconCalendar: React.FC = () => <Svg path="M3 4h18v18H3z M3 10h18 M9 2v4 M1
 const IconClock: React.FC = () => <Svg path="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm5 11h-6V8a1 1 0 0 1 2 0v3h4a1 1 0 0 1 0 2Z" />
 const IconUser: React.FC = () => <Svg path="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
 const IconMapPin: React.FC = () => <Svg path="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+const IconStore: React.FC = () => <Svg path="M3 21h18v-9l-9-7-9 7v9zM9 21v-6h6v6" />
 
 interface Booking {
 	id: number
@@ -21,6 +22,8 @@ interface Booking {
 	date: string
 	time: string
 	location: string
+	storeName: string
+	storeAddress: string
 	status: 'pending' | 'confirmed' | 'completed' | 'cancelled'
 	price: number
 	note?: string
@@ -34,6 +37,8 @@ const bookings: Booking[] = [
 		date: '2024-09-16',
 		time: '14:00-16:00',
 		location: '1号场',
+		storeName: 'TT网球（南山店）',
+		storeAddress: '朝阳区望京街道15号',
 		status: 'confirmed',
 		price: 120,
 		note: '第一次上课，希望多关照'
@@ -45,6 +50,8 @@ const bookings: Booking[] = [
 		date: '2024-09-16',
 		time: '10:00-11:00',
 		location: '2号场',
+		storeName: 'TT网球（福田店）',
+		storeAddress: '海淀区中关村大街32号',
 		status: 'pending',
 		price: 300
 	},
@@ -55,6 +62,8 @@ const bookings: Booking[] = [
 		date: '2024-09-14',
 		time: '14:00-16:00',
 		location: '2号场',
+		storeName: 'TT网球（南山店）',
+		storeAddress: '朝阳区望京街道15号',
 		status: 'cancelled',
 		price: 120,
 		note: '临时有事取消'
@@ -174,6 +183,10 @@ export const Bookings: React.FC = () => {
 								<div className="booking-detail">
 									<IconClock />
 									<span>{booking.time}</span>
+								</div>
+								<div className="booking-detail">
+									<IconStore />
+									<span>{booking.storeName}</span>
 								</div>
 								<div className="booking-detail">
 									<IconMapPin />
