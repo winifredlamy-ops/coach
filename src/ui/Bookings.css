@@ -61,18 +61,24 @@
 	cursor: pointer;
 }
 
+.booking-main {
+	display: flex;
+	flex-direction: column;
+}
+
 .booking-header {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	margin-bottom: 12px;
+	margin-bottom: 6px;
 }
 
 .booking-course h3 {
 	font-size: 16px;
 	font-weight: 600;
-	margin: 0 0 8px 0;
+	margin: 0;
 	color: var(--fg);
+	line-height: 1.1;
 }
 
 .booking-status {
@@ -92,7 +98,7 @@
 	display: flex;
 	align-items: center;
 	gap: 8px;
-	margin-bottom: 12px;
+	margin-bottom: 16px;
 	color: var(--fg);
 	font-weight: 500;
 }
@@ -105,7 +111,7 @@
 	display: flex;
 	gap: 16px;
 	flex-wrap: wrap;
-	margin-bottom: 12px;
+	margin-bottom: 6px;
 }
 
 .booking-detail {
@@ -114,6 +120,7 @@
 	gap: 4px;
 	font-size: 12px;
 	color: var(--muted);
+	line-height: 1.0;
 }
 
 .booking-detail svg {

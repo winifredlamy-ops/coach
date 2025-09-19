@@ -9,7 +9,7 @@ const Svg: React.FC<{ path: string; className?: string }> = ({ path, className }
 )
 
 const IconCalendar: React.FC = () => <Svg path="M3 4h18v18H3z M3 10h18 M9 2v4 M15 2v4" />
-const IconClock: React.FC = () => <Svg path="M12 6v6l4 2" />
+const IconClock: React.FC = () => <Svg path="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm5 11h-6V8a1 1 0 0 1 2 0v3h4a1 1 0 0 1 0 2Z" />
 const IconUser: React.FC = () => <Svg path="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
 const IconMapPin: React.FC = () => <Svg path="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
 
@@ -144,45 +144,50 @@ export const Bookings: React.FC = () => {
 						className="booking-card card"
 						onClick={() => navigate(`/bookings/${booking.id}`)}
 					>
-						<div className="booking-header">
-							<div className="booking-course">
-								<h3>{booking.courseName}</h3>
+						<div className="booking-main">
+							<div className="booking-header">
+								<div className="booking-course">
+									<h3>{booking.courseName}</h3>
+								</div>
 								<span
 									className="booking-status"
-									style={{ background: getStatusColor(booking.status) + '20', color: getStatusColor(booking.status) }}
+									style={{
+										background: getStatusColor(booking.status) + '20',
+										color: getStatusColor(booking.status),
+										border: `1px solid ${getStatusColor(booking.status)}`
+									}}
 								>
 									{getStatusText(booking.status)}
 								</span>
 							</div>
-							<div className="booking-price">¥{booking.price}</div>
-						</div>
 
-						<div className="booking-student">
-							<IconUser />
-							<span>{booking.studentName}</span>
-						</div>
+							<div className="booking-student">
+								<IconUser />
+								<span>{booking.studentName}</span>
+							</div>
 
-						<div className="booking-details">
-							<div className="booking-detail">
-								<IconCalendar />
-								<span>{formatDate(booking.date)}</span>
+							<div className="booking-details">
+								<div className="booking-detail">
+									<IconCalendar />
+									<span>{formatDate(booking.date)}</span>
+								</div>
+								<div className="booking-detail">
+									<IconClock />
+									<span>{booking.time}</span>
+								</div>
+								<div className="booking-detail">
+									<IconMapPin />
+									<span>{booking.location}</span>
+								</div>
 							</div>
-							<div className="booking-detail">
-								<IconClock />
-								<span>{booking.time}</span>
-							</div>
-							<div className="booking-detail">
-								<IconMapPin />
-								<span>{booking.location}</span>
-							</div>
-						</div>
 
-						{booking.note && (
-							<div className="booking-note">
-								<span className="note-label">备注：</span>
-								{booking.note}
-							</div>
-						)}
+							{booking.note && (
+								<div className="booking-note">
+									<span className="note-label">备注：</span>
+									{booking.note}
+								</div>
+							)}
+						</div>
 					</div>
 				))}
 			</div>
