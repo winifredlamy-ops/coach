@@ -75,9 +75,10 @@ export const Bookings: React.FC = () => {
 	const navigate = useNavigate()
 	const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled'>('all')
 
-	const filteredBookings = filter === 'all'
+	const filteredBookings = (filter === 'all'
 		? bookings
 		: bookings.filter(booking => booking.status === filter)
+	).slice(0, 4)
 
 	const getStatusColor = (status: string) => {
 		switch (status) {
