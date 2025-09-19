@@ -121,3 +121,123 @@
 .save-button:active {
 	transform: translateY(1px);
 }
+
+.options-section {
+	padding: 0 16px;
+	margin-bottom: 24px;
+}
+
+.option-group {
+	margin-bottom: 24px;
+}
+
+.option-label {
+	display: block;
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--fg);
+	margin-bottom: 12px;
+}
+
+.weekday-grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 8px;
+}
+
+.weekday-btn {
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 8px 4px;
+	font-size: 14px;
+	color: var(--fg);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.weekday-btn.selected {
+	background: var(--primary);
+	color: white;
+	border-color: var(--primary);
+}
+
+.weekday-btn:hover {
+	border-color: var(--primary);
+}
+
+.duration-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 8px;
+}
+
+.duration-btn {
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 12px;
+	font-size: 14px;
+	color: var(--fg);
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.duration-btn.selected {
+	background: var(--primary);
+	color: white;
+	border-color: var(--primary);
+}
+
+.duration-btn:hover {
+	border-color: var(--primary);
+}
+
+.toggle-section {
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 16px;
+}
+
+.toggle-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.toggle-item span {
+	font-size: 16px;
+	color: var(--fg);
+}
+
+.toggle-switch {
+	position: relative;
+	width: 50px;
+	height: 28px;
+	background: var(--border);
+	border: none;
+	border-radius: 14px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.toggle-switch.active {
+	background: var(--primary);
+}
+
+.toggle-slider {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	background: white;
+	border-radius: 50%;
+	top: 2px;
+	left: 2px;
+	transition: transform 0.2s ease;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.toggle-switch.active .toggle-slider {
+	transform: translateX(22px);
+}

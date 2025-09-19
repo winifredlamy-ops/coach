@@ -15,9 +15,33 @@ export const TimeSlotSetting: React.FC = () => {
 	const navigate = useNavigate()
 	const [startTime, setStartTime] = useState('4:36 PM')
 	const [endTime, setEndTime] = useState('4:36 PM')
+	const [selectedDays, setSelectedDays] = useState<string[]>(['周一', '周二', '周三', '周四', '周五'])
+	const [duration, setDuration] = useState('60')
+	const [isRecurring, setIsRecurring] = useState(true)
+
+	const weekdays = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+	const durations = [
+		{ value: '30', label: '30分钟' },
+		{ value: '60', label: '1小时' },
+		{ value: '120', label: '2小时' }
+	]
+
+	const toggleDay = (day: string) => {
+		setSelectedDays(prev =>
+			prev.includes(day)
+				? prev.filter(d => d !== day)
+				: [...prev, day]
+		)
+	}
 
 	const handleSave = () => {
-		console.log('保存时间段:', { startTime, endTime })
+		console.log('保存时间段:', {
+			startTime,
+			endTime,
+			selectedDays,
+			duration,
+			isRecurring
+		})
 	}
 
 	const formatTimeDisplay = (time: string) => {
@@ -79,6 +103,53 @@ export const TimeSlotSetting: React.FC = () => {
 							</div>
 							<div className="time-icon">
 								<IconClock />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div className="options-section">
+					<div className="option-group">
+						<label className="option-label">选择工作日</label>
+						<div className="weekday-grid">
+							{weekdays.map(day => (
+								<button
+									key={day}
+									className={`weekday-btn ${selectedDays.includes(day) ? 'selected' : ''}`}
+									onClick={() => toggleDay(day)}
+								>
+									{day}
+								</button>
+							))}
+						</div>
+					</div>
+
+					<div className="option-group">
+						<label className="option-label">课程时长</label>
+						<div className="duration-grid">
+							{durations.map(dur => (
+								<button
+									key={dur.value}
+									className={`duration-btn ${duration === dur.value ? 'selected' : ''}`}
+									onClick={() => setDuration(dur.value)}
+								>
+									{dur.label}
+								</button>
+							))}
+						</div>
+					</div>
+
+					<div className="option-group">
+						<label className="option-label">重复设置</label>
+						<div className="toggle-section">
+							<div className="toggle-item">
+								<span>每周重复</span>
+								<button
+									className={`toggle-switch ${isRecurring ? 'active' : ''}`}
+									onClick={() => setIsRecurring(!isRecurring)}
+								>
+									<div className="toggle-slider"></div>
+								</button>
 							</div>
 						</div>
 					</div>
