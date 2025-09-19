@@ -138,8 +138,3 @@
 	padding: 40px 20px;
 }
 
-@media (max-width: 480px) {
-	.actions {
-		flex-direction: column;
-	}
-}

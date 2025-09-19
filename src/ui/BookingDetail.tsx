@@ -71,18 +71,18 @@ export const BookingDetail: React.FC = () => {
 
 			<div className="actions">
 				<button
-					className="btn btn-outline cancel-btn"
-					onClick={handleCancel}
-				>
-					<IconX />
-					拒绝预约
-				</button>
-				<button
 					className="btn btn-primary confirm-btn"
 					onClick={handleConfirm}
 				>
 					<IconCheck />
-					确认预约
+					完成上课
+				</button>
+				<button
+					className="btn btn-outline cancel-btn"
+					onClick={handleCancel}
+				>
+					<IconX />
+					取消订单
 				</button>
 			</div>
 
