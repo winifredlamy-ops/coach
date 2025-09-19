@@ -52,7 +52,7 @@ export const App: React.FC = () => {
 				</NavLink>
 				<NavLink to="/bookings" className={({ isActive }) => isActive ? 'tab active' : 'tab'} end>
 					<IconCalendar />
-					<span>预约</span>
+					<span>课程</span>
 				</NavLink>
 				<NavLink to="/students" className={({ isActive }) => isActive ? 'tab active' : 'tab'} end>
 					<IconUsers />

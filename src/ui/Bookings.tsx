@@ -107,7 +107,7 @@ export const Bookings: React.FC = () => {
 	return (
 		<div className="page">
 			<div className="bookings-header">
-				<h1 className="page-title">预约管理</h1>
+				<h1 className="page-title">我的课程</h1>
 			</div>
 
 			<div className="filter-tabs">
