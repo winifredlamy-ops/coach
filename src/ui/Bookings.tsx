@@ -57,7 +57,7 @@ const bookings: Booking[] = [
 	},
 	{
 		id: 5,
-		courseName: '成人网球基础班-小团课120分钟',
+		courseName: '周末单次小团课体验-4人班/120分钟',
 		studentName: '赵小红',
 		date: '2024-09-14',
 		time: '14:00-16:00',

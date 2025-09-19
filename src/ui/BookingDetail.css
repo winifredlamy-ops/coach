@@ -43,11 +43,13 @@
 }
 
 .booking-info h2 {
-	font-size: 20px;
+	font-size: 14px;
 	font-weight: 600;
 	margin: 0 0 20px 0;
 	color: var(--fg);
-	padding-right: 80px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .booking-details {

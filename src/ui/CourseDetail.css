@@ -3,6 +3,14 @@
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 24px;
+	position: relative;
+}
+
+.detail-header .page-title {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
 }
 
 .back-btn,

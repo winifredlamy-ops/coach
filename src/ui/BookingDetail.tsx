@@ -39,8 +39,7 @@ export const BookingDetail: React.FC = () => {
 			</div>
 
 			<div className="booking-info card">
-				<div className="status-badge pending">待确认</div>
-				<h2>网球基础班</h2>
+				<h2>周末单次小团课体验-4人班/120分钟</h2>
 				<div className="booking-details">
 					<div className="detail-row">
 						<span className="label">学员姓名:</span>
@@ -56,7 +55,7 @@ export const BookingDetail: React.FC = () => {
 					</div>
 					<div className="detail-row">
 						<span className="label">上课地点:</span>
-						<span className="value">1号场地</span>
+						<span className="value">TT网球（南山店）1号场地</span>
 					</div>
 					<div className="detail-row">
 						<span className="label">课程价格:</span>
