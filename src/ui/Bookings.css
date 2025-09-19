@@ -1,3 +1,23 @@
+.page {
+	padding: 20px 16px;
+}
+
+.page-title {
+	font-size: 24px;
+	font-weight: 700;
+	margin: 0 0 24px 0;
+	color: var(--fg);
+}
+
+.bookings-header {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.bookings-header .page-title {
+	font-size: 20px;
+}
+
 .filter-tabs {
 	display: flex;
 	gap: 8px;

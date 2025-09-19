@@ -48,7 +48,7 @@ export const App: React.FC = () => {
 				</NavLink>
 				<NavLink to="/courses" className={({ isActive }) => isActive ? 'tab active' : 'tab'} end>
 					<IconBook />
-					<span>课程</span>
+					<span>订场</span>
 				</NavLink>
 				<NavLink to="/bookings" className={({ isActive }) => isActive ? 'tab active' : 'tab'} end>
 					<IconCalendar />
@@ -56,7 +56,7 @@ export const App: React.FC = () => {
 				</NavLink>
 				<NavLink to="/students" className={({ isActive }) => isActive ? 'tab active' : 'tab'} end>
 					<IconUsers />
-					<span>学员</span>
+					<span>活动</span>
 				</NavLink>
 				<NavLink to="/profile" className={({ isActive }) => isActive ? 'tab active' : 'tab'} end>
 					<IconUser />

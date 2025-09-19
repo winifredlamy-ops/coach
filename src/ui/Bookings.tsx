@@ -29,52 +29,32 @@ interface Booking {
 const bookings: Booking[] = [
 	{
 		id: 1,
-		courseName: '网球基础班',
+		courseName: '周末单次小团课体验-4人班/120分钟',
 		studentName: '李小明',
 		date: '2024-09-16',
-		time: '09:00-10:30',
-		location: '1号场地',
+		time: '14:00-16:00',
+		location: '1号场',
 		status: 'confirmed',
 		price: 120,
 		note: '第一次上课，希望多关照'
 	},
 	{
 		id: 2,
-		courseName: '成人私教课',
+		courseName: '1对2私教体验课-室内60分钟',
 		studentName: '王美丽',
 		date: '2024-09-16',
-		time: '14:00-15:00',
-		location: '3号场地',
+		time: '10:00-11:00',
+		location: '2号场',
 		status: 'pending',
 		price: 300
 	},
 	{
-		id: 3,
-		courseName: '青少年提高班',
-		studentName: '张小华',
-		date: '2024-09-16',
-		time: '16:00-17:30',
-		location: '2号场地',
-		status: 'confirmed',
-		price: 150
-	},
-	{
-		id: 4,
-		courseName: '网球体验课',
-		studentName: '陈大力',
-		date: '2024-09-15',
-		time: '10:00-11:00',
-		location: '1号场地',
-		status: 'completed',
-		price: 68
-	},
-	{
 		id: 5,
-		courseName: '网球基础班',
+		courseName: '成人网球基础班-小团课120分钟',
 		studentName: '赵小红',
 		date: '2024-09-14',
-		time: '09:00-10:30',
-		location: '1号场地',
+		time: '14:00-16:00',
+		location: '2号场',
 		status: 'cancelled',
 		price: 120,
 		note: '临时有事取消'
@@ -126,7 +106,9 @@ export const Bookings: React.FC = () => {
 
 	return (
 		<div className="page">
-			<h1 className="page-title">预约管理</h1>
+			<div className="bookings-header">
+				<h1 className="page-title">预约管理</h1>
+			</div>
 
 			<div className="filter-tabs">
 				<button

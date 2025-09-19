@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Students.css'
 
 const Svg: React.FC<{ path: string; className?: string }> = ({ path, className }) => (
@@ -7,251 +7,138 @@ const Svg: React.FC<{ path: string; className?: string }> = ({ path, className }
 	</svg>
 )
 
-const IconSearch: React.FC = () => <Svg path="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z M21 21l-4.35-4.35" />
-const IconPhone: React.FC = () => <Svg path="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-const IconMail: React.FC = () => <Svg path="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6" />
-const IconCalendar: React.FC = () => <Svg path="M3 4h18v18H3z M3 10h18 M9 2v4 M15 2v4" />
-const IconTrendingUp: React.FC = () => <Svg path="M23 6l-9.5 9.5-5-5L1 18" />
+const IconMapPin: React.FC = () => <Svg path="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+const IconClock: React.FC = () => <Svg path="M12 6v6l4 2" />
+const IconUsers: React.FC = () => <Svg path="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
+const IconCircle: React.FC = () => <Svg path="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z" />
 
-interface Student {
+interface Activity {
 	id: number
-	name: string
-	avatar?: string
-	phone: string
-	email?: string
-	joinDate: string
-	totalClasses: number
-	completedClasses: number
-	lastClass?: string
-	level: '初级' | '中级' | '高级'
-	status: 'active' | 'inactive'
-	notes?: string
+	title: string
+	type: '导师陪练局' | 'TT2.5单打比赛' | 'TT网球-室内团课'
+	time: string
+	date: string
+	location: string
+	organizer: string
+	participants: { current: number; max: number }
+	image: string
+	area: string
 }
 
-const students: Student[] = [
+const activities: Activity[] = [
 	{
 		id: 1,
-		name: '李小明',
-		phone: '13800138001',
-		email: 'lixiaoming@example.com',
-		joinDate: '2024-08-01',
-		totalClasses: 12,
-		completedClasses: 8,
-		lastClass: '2024-09-14',
-		level: '初级',
-		status: 'active'
+		title: '【导师陪练局】9.21周日20-21点左炮台TT室外场3.5+女高陪...',
+		type: '导师陪练局',
+		time: '20:00~21:00',
+		date: '09/21',
+		location: '深圳市 泽芯(国际)无人机测试中心 2号场',
+		organizer: 'TT网球俱乐部',
+		participants: { current: 0, max: 2 },
+		image: '/api/placeholder/120/80',
+		area: '南油店'
 	},
 	{
 		id: 2,
-		name: '王美丽',
-		phone: '13800138002',
-		email: 'wangmeili@example.com',
-		joinDate: '2024-07-15',
-		totalClasses: 20,
-		completedClasses: 15,
-		lastClass: '2024-09-15',
-		level: '中级',
-		status: 'active'
+		title: '【导师陪练局】9.21周日21-22点左炮台TT室外场3.5+女高陪...',
+		type: '导师陪练局',
+		time: '21:00~22:00',
+		date: '09/21',
+		location: '深圳市 泽芯(国际)无人机测试中心 2号场',
+		organizer: 'TT网球俱乐部',
+		participants: { current: 2, max: 2 },
+		image: '/api/placeholder/120/80',
+		area: '南油店'
 	},
 	{
 		id: 3,
-		name: '张小华',
-		phone: '13800138003',
-		joinDate: '2024-06-10',
-		totalClasses: 30,
-		completedClasses: 28,
-		lastClass: '2024-09-13',
-		level: '高级',
-		status: 'active'
+		title: '【TT2.5单打比赛】9.21周日17-20点，蛇口室外场、不限男女',
+		type: 'TT2.5单打比赛',
+		time: '17:00~20:00',
+		date: '09/21',
+		location: '深圳市 泽芯(国际)无人机测试中心 TT左炮...',
+		organizer: 'TT网球俱乐部',
+		participants: { current: 8, max: 8 },
+		image: '/api/placeholder/120/80',
+		area: '南油店'
 	},
 	{
 		id: 4,
-		name: '陈大力',
-		phone: '13800138004',
-		email: 'chendali@example.com',
-		joinDate: '2024-05-20',
-		totalClasses: 5,
-		completedClasses: 3,
-		lastClass: '2024-08-30',
-		level: '初级',
-		status: 'inactive',
-		notes: '最近两周未上课'
-	},
-	{
-		id: 5,
-		name: '赵小红',
-		phone: '13800138005',
-		joinDate: '2024-09-01',
-		totalClasses: 4,
-		completedClasses: 2,
-		lastClass: '2024-09-12',
-		level: '初级',
-		status: 'active'
+		title: '【TT网球-室内团课】新手快速入门课 -9月20日（周六）10-1...',
+		type: 'TT网球-室内团课',
+		time: '10:00~12:00',
+		date: '09/20',
+		location: '深圳市 TT网球(福田会展店) TT网球会展...',
+		organizer: 'TT网球俱乐部',
+		participants: { current: 0, max: 4 },
+		image: '/api/placeholder/120/80',
+		area: '会展店'
 	}
 ]
 
 export const Students: React.FC = () => {
-	const [searchTerm, setSearchTerm] = useState('')
-	const [filter, setFilter] = useState<'all' | 'active' | 'inactive'>('all')
-
-	const filteredStudents = students.filter(student => {
-		const matchesSearch = student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			student.phone.includes(searchTerm)
-		const matchesFilter = filter === 'all' || student.status === filter
-		return matchesSearch && matchesFilter
-	})
-
-	const getLevelColor = (level: string) => {
-		switch (level) {
-			case '初级': return 'var(--warning)'
-			case '中级': return 'var(--primary)'
-			case '高级': return 'var(--secondary)'
-			default: return 'var(--muted)'
+	const getTypeColor = (type: string) => {
+		switch (type) {
+			case '导师陪练局': return '#10B981'
+			case 'TT2.5单打比赛': return '#F59E0B'
+			case 'TT网球-室内团课': return '#3B82F6'
+			default: return '#6B7280'
 		}
 	}
 
-	const getStatusColor = (status: string) => {
-		switch (status) {
-			case 'active': return 'var(--success)'
-			case 'inactive': return 'var(--muted)'
-			default: return 'var(--muted)'
-		}
-	}
-
-	const getStatusText = (status: string) => {
-		switch (status) {
-			case 'active': return '活跃'
-			case 'inactive': return '不活跃'
-			default: return status
-		}
-	}
-
-	const formatDate = (dateStr: string) => {
-		const date = new Date(dateStr)
-		return date.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' })
-	}
-
-	const getProgress = (completed: number, total: number) => {
-		return total > 0 ? Math.round((completed / total) * 100) : 0
-	}
+	const isFull = (current: number, max: number) => current >= max
 
 	return (
 		<div className="page">
-			<h1 className="page-title">学员管理</h1>
-
-			<div className="search-bar">
-				<div className="search-input">
-					<IconSearch />
-					<input
-						type="text"
-						placeholder="搜索学员姓名或手机号"
-						value={searchTerm}
-						onChange={(e) => setSearchTerm(e.target.value)}
-						className="input"
-					/>
-				</div>
+			<div className="activities-header">
+				<h1 className="page-title">活动</h1>
 			</div>
 
-			<div className="filter-tabs">
-				<button
-					className={filter === 'all' ? 'filter-tab active' : 'filter-tab'}
-					onClick={() => setFilter('all')}
-				>
-					全部 ({students.length})
-				</button>
-				<button
-					className={filter === 'active' ? 'filter-tab active' : 'filter-tab'}
-					onClick={() => setFilter('active')}
-				>
-					活跃 ({students.filter(s => s.status === 'active').length})
-				</button>
-				<button
-					className={filter === 'inactive' ? 'filter-tab active' : 'filter-tab'}
-					onClick={() => setFilter('inactive')}
-				>
-					不活跃 ({students.filter(s => s.status === 'inactive').length})
-				</button>
-			</div>
+			<div className="activities-list">
+				{activities.map((activity) => (
+					<div key={activity.id} className="activity-card">
+						<div className="activity-content">
+							<div className="activity-info">
+								<div className="activity-type" style={{ color: getTypeColor(activity.type) }}>
+									<IconCircle />
+									<span>[{activity.type}]</span>
+								</div>
+								<h3 className="activity-title">{activity.title}</h3>
 
-			<div className="students-list">
-				{filteredStudents.map((student) => (
-					<div key={student.id} className="student-card card">
-						<div className="student-header">
-							<div className="student-info">
-								<div className="student-name">
-									<h3>{student.name}</h3>
-									<div className="student-badges">
-										<span
-											className="student-level"
-											style={{ background: getLevelColor(student.level) + '20', color: getLevelColor(student.level) }}
-										>
-											{student.level}
-										</span>
-										<span
-											className="student-status"
-											style={{ background: getStatusColor(student.status) + '20', color: getStatusColor(student.status) }}
-										>
-											{getStatusText(student.status)}
-										</span>
+								<div className="activity-meta">
+									<div className="participants">
+										{activity.participants.current}/{activity.participants.max}
+									</div>
+									<div className="time">
+										{activity.date} {activity.time}
 									</div>
 								</div>
-							</div>
-							<div className="student-progress">
-								<div className="progress-text">
-									{student.completedClasses}/{student.totalClasses}
+
+								<div className="activity-location">
+									<IconMapPin />
+									<span>{activity.location}</span>
 								</div>
-								<div className="progress-bar">
-									<div
-										className="progress-fill"
-										style={{ width: `${getProgress(student.completedClasses, student.totalClasses)}%` }}
-									/>
+
+								<div className="activity-footer">
+									<div className="organizer">
+										<div className="organizer-avatar">
+											<span>TT</span>
+										</div>
+										<span>{activity.organizer}</span>
+									</div>
+									<div className="area">{activity.area}</div>
+								</div>
+							</div>
+
+							<div className="activity-image">
+								<div className="image-placeholder" style={{ backgroundColor: '#E5E7EB' }}>
+									<span style={{ color: '#9CA3AF', fontSize: '12px' }}>图片</span>
 								</div>
 							</div>
 						</div>
-
-						<div className="student-contacts">
-							<div className="contact-item">
-								<IconPhone />
-								<span>{student.phone}</span>
-							</div>
-							{student.email && (
-								<div className="contact-item">
-									<IconMail />
-									<span>{student.email}</span>
-								</div>
-							)}
-						</div>
-
-						<div className="student-details">
-							<div className="detail-item">
-								<IconCalendar />
-								<span>加入：{formatDate(student.joinDate)}</span>
-							</div>
-							{student.lastClass && (
-								<div className="detail-item">
-									<IconTrendingUp />
-									<span>最近：{formatDate(student.lastClass)}</span>
-								</div>
-							)}
-						</div>
-
-						{student.notes && (
-							<div className="student-notes">
-								<span className="notes-label">备注：</span>
-								{student.notes}
-							</div>
-						)}
 					</div>
 				))}
 			</div>
-
-			{filteredStudents.length === 0 && (
-				<div className="empty-state">
-					<p>
-						{searchTerm ? '未找到匹配的学员' : '暂无学员'}
-					</p>
-				</div>
-			)}
 		</div>
 	)
 }
