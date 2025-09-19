@@ -9,6 +9,7 @@ import { Profile } from './Profile'
 import { CourseDetail } from './CourseDetail'
 import { BookingDetail } from './BookingDetail'
 import { CreateCourse } from './CreateCourse'
+import { TimeSlotSetting } from './TimeSlotSetting'
 
 const Svg: React.FC<{ path: string; className?: string }> = ({ path, className }) => (
 	<svg className={className} viewBox="0 0 24 24" width="20" height="20" aria-hidden>
@@ -36,6 +37,7 @@ export const App: React.FC = () => {
 					<Route path="/bookings/:id" element={<BookingDetail />} />
 					<Route path="/students" element={<Students />} />
 					<Route path="/profile" element={<Profile />} />
+					<Route path="/profile/time-slot" element={<TimeSlotSetting />} />
 					<Route path="*" element={<Navigate to="/home" replace />} />
 				</Routes>
 			</div>

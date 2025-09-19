@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Profile.css'
 
 const Svg: React.FC<{ path: string; className?: string }> = ({ path, className }) => (
@@ -58,11 +59,13 @@ interface MenuItem {
 }
 
 export const Profile: React.FC = () => {
+	const navigate = useNavigate()
+
 	const menuItems: MenuItem[] = [
 		{
 			icon: <IconClock />,
-			label: '设置上课时间段',
-			action: () => console.log('设置上课时间段')
+			label: '设置空闲时间段',
+			action: () => navigate('/profile/time-slot')
 		},
 		{
 			icon: <IconMessage />,

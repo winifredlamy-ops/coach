@@ -1,0 +1,123 @@
+.time-slot-header {
+	background: white;
+	padding: 14px 16px;
+	border-bottom: 1px solid #e5e7eb;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	height: 56px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.back-button {
+	background: none;
+	border: none;
+	color: var(--primary);
+	cursor: pointer;
+	padding: 0;
+	display: flex;
+	align-items: center;
+}
+
+.time-slot-header .page-title {
+	font-size: 20px;
+	font-weight: 600;
+	color: #1f2937;
+	margin: 0;
+	flex: 1;
+	text-align: center;
+	margin-right: 36px;
+}
+
+.time-slot-content {
+	padding-top: 80px;
+	padding-bottom: 120px;
+}
+
+.time-input-section {
+	padding: 0 16px;
+	margin-bottom: 40px;
+}
+
+.time-input-group {
+	margin-bottom: 32px;
+}
+
+.time-label {
+	display: block;
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--fg);
+	margin-bottom: 12px;
+}
+
+.time-input-wrapper {
+	position: relative;
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.time-input {
+	position: absolute;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	cursor: pointer;
+}
+
+.time-display {
+	font-size: 16px;
+	color: var(--fg);
+	font-weight: 500;
+	flex: 1;
+}
+
+.time-icon {
+	color: var(--muted);
+	display: flex;
+	align-items: center;
+}
+
+.save-section {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: white;
+	border-top: 1px solid var(--border);
+	padding: 20px 16px;
+	padding-bottom: calc(20px + env(safe-area-inset-bottom));
+}
+
+.save-button {
+	width: 100%;
+	background: var(--primary);
+	color: white;
+	border: none;
+	border-radius: 12px;
+	padding: 16px;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.save-button:hover {
+	background: var(--primary-dark, #0056b3);
+}
+
+.save-button:active {
+	transform: translateY(1px);
+}
