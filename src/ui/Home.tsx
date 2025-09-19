@@ -15,6 +15,11 @@ export const Home: React.FC = () => {
 
 	return (
 		<div className="page home-page">
+			{/* 标题 */}
+			<div className="home-header">
+				<h1 className="page-title">首页</h1>
+			</div>
+
 			{/* TT Tennis 品牌展示区域 */}
 			<div className="brand-header">
 				<div className="brand-logo">
