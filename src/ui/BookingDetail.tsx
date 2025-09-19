@@ -2,6 +2,49 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import './BookingDetail.css'
 
+// Import booking data to access course names
+const bookings = [
+	{
+		id: 1,
+		courseName: '周末单次小团课体验-4人班/120分钟',
+		studentName: '李小明',
+		date: '2024-09-16',
+		time: '14:00-16:00',
+		location: '1号场',
+		storeName: 'TT网球（南山店）',
+		storeAddress: '朝阳区望京街道15号',
+		status: 'confirmed',
+		price: 120,
+		note: '第一次上课，希望多关照'
+	},
+	{
+		id: 2,
+		courseName: '1对2私教体验课-室内60分钟',
+		studentName: '王美丽',
+		date: '2024-09-16',
+		time: '10:00-11:00',
+		location: '2号场',
+		storeName: 'TT网球（福田店）',
+		storeAddress: '海淀区中关村大街32号',
+		status: 'pending',
+		price: 300,
+		note: '学过正反手但不够熟练'
+	},
+	{
+		id: 5,
+		courseName: '周末单次小团课体验-4人班/120分钟',
+		studentName: '赵小红',
+		date: '2024-09-14',
+		time: '14:00-16:00',
+		location: '2号场',
+		storeName: 'TT网球（南山店）',
+		storeAddress: '朝阳区望京街道15号',
+		status: 'cancelled',
+		price: 120,
+		note: '临时有事取消'
+	}
+]
+
 const Svg: React.FC<{ path: string; className?: string }> = ({ path, className }) => (
 	<svg className={className} viewBox="0 0 24 24" width="20" height="20" aria-hidden fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
 		<path d={path} />
@@ -15,6 +58,10 @@ const IconX: React.FC = () => <Svg path="M18 6L6 18 M6 6l12 12" />
 export const BookingDetail: React.FC = () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
+
+	// Find the booking by ID
+	const booking = bookings.find(b => b.id === parseInt(id || '0'))
+	const courseName = booking?.courseName || '周末单次小团课体验-4人班/120分钟'
 
 	const handleConfirm = () => {
 		console.log('确认预约')
@@ -39,11 +86,11 @@ export const BookingDetail: React.FC = () => {
 			</div>
 
 			<div className="booking-info card">
-				<h2>周末单次小团课体验-4人班/120分钟</h2>
+				<h2>{courseName}</h2>
 				<div className="booking-details">
 					<div className="detail-row">
 						<span className="label">学员姓名:</span>
-						<span className="value">李小明</span>
+						<span className="value">{booking?.studentName || '李小明'}</span>
 					</div>
 					<div className="detail-row">
 						<span className="label">联系电话:</span>
@@ -51,39 +98,54 @@ export const BookingDetail: React.FC = () => {
 					</div>
 					<div className="detail-row">
 						<span className="label">上课时间:</span>
-						<span className="value">2024-09-16 09:00-10:30</span>
+						<span className="value">{booking?.date || '2024-09-16'} {booking?.time || '09:00-10:30'}</span>
 					</div>
 					<div className="detail-row">
 						<span className="label">上课地点:</span>
-						<span className="value">TT网球（南山店）1号场地</span>
+						<span className="value">{booking?.storeName || 'TT网球（南山店）'}{booking?.location || '1号场地'}</span>
 					</div>
 					<div className="detail-row">
 						<span className="label">课程价格:</span>
-						<span className="value price">¥120</span>
+						<span className="value price">¥{booking?.price || 120}</span>
 					</div>
 				</div>
 
-				<div className="note-section">
-					<h3>学员备注</h3>
-					<p>第一次上课，希望多关照</p>
-				</div>
+				{booking?.note && (
+					<div className="note-section">
+						<h3>学员备注</h3>
+						<p>{booking.note}</p>
+					</div>
+				)}
 			</div>
 
 			<div className="actions">
-				<button
-					className="btn btn-primary confirm-btn"
-					onClick={handleConfirm}
-				>
-					<IconCheck />
-					完成上课
-				</button>
-				<button
-					className="btn btn-outline cancel-btn"
-					onClick={handleCancel}
-				>
-					<IconX />
-					取消订单
-				</button>
+				{booking?.id === 2 ? (
+					<button
+						className="btn btn-primary confirm-btn"
+						onClick={handleConfirm}
+						style={{ width: '100%' }}
+					>
+						<IconCheck />
+						确认接受
+					</button>
+				) : (
+					<>
+						<button
+							className="btn btn-primary confirm-btn"
+							onClick={handleConfirm}
+						>
+							<IconCheck />
+							完成上课
+						</button>
+						<button
+							className="btn btn-outline cancel-btn"
+							onClick={handleCancel}
+						>
+							<IconX />
+							取消订单
+						</button>
+					</>
+				)}
 			</div>
 
 			<div className="placeholder">

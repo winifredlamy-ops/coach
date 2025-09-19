@@ -53,7 +53,8 @@ const bookings: Booking[] = [
 		storeName: 'TT网球（福田店）',
 		storeAddress: '海淀区中关村大街32号',
 		status: 'pending',
-		price: 300
+		price: 300,
+		note: '学过正反手但不够熟练'
 	},
 	{
 		id: 5,
