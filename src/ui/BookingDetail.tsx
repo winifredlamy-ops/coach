@@ -128,6 +128,8 @@ export const BookingDetail: React.FC = () => {
 						<IconCheck />
 						确认接受
 					</button>
+				) : booking?.id === 5 ? (
+					<div></div>
 				) : (
 					<>
 						<button
@@ -148,10 +150,12 @@ export const BookingDetail: React.FC = () => {
 				)}
 			</div>
 
-			<div className="placeholder">
-				<p className="muted">预约ID: {id}</p>
-				<p className="muted">其他功能开发中...</p>
-			</div>
+			{booking?.id !== 5 && (
+				<div className="placeholder">
+					<p className="muted">预约ID: {id}</p>
+					<p className="muted">其他功能开发中...</p>
+				</div>
+			)}
 		</div>
 	)
 }

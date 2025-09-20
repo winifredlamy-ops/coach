@@ -82,7 +82,7 @@
 }
 
 .booking-course h3 {
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 600;
 	margin: 0;
 	color: var(--fg);
@@ -108,7 +108,7 @@
 	display: flex;
 	align-items: center;
 	gap: 4px;
-	font-size: 12px;
+	font-size: 14px;
 	color: var(--muted);
 }
 
@@ -129,7 +129,7 @@
 	display: flex;
 	align-items: center;
 	gap: 4px;
-	font-size: 11px;
+	font-size: 13px;
 	color: var(--muted);
 }
 
@@ -140,7 +140,7 @@
 }
 
 .booking-note {
-	font-size: 11px;
+	font-size: 13px;
 	color: var(--muted);
 	background: var(--bg);
 	padding: 4px 6px;

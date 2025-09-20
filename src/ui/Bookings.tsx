@@ -31,19 +31,6 @@ interface Booking {
 
 const bookings: Booking[] = [
 	{
-		id: 1,
-		courseName: '周末单次小团课体验-4人班/120分钟',
-		studentName: '李小明',
-		date: '2024-09-16',
-		time: '14:00-16:00',
-		location: '1号场',
-		storeName: 'TT网球（南山店）',
-		storeAddress: '朝阳区望京街道15号',
-		status: 'confirmed',
-		price: 120,
-		note: '第一次上课，希望多关照'
-	},
-	{
 		id: 2,
 		courseName: '1对2私教体验课-室内60分钟',
 		studentName: '王美丽',
@@ -55,6 +42,19 @@ const bookings: Booking[] = [
 		status: 'pending',
 		price: 300,
 		note: '学过正反手但不够熟练'
+	},
+	{
+		id: 1,
+		courseName: '周末单次小团课体验-4人班/120分钟',
+		studentName: '李小明',
+		date: '2024-09-16',
+		time: '14:00-16:00',
+		location: '1号场',
+		storeName: 'TT网球（南山店）',
+		storeAddress: '朝阳区望京街道15号',
+		status: 'confirmed',
+		price: 120,
+		note: '第一次上课，希望多关照'
 	},
 	{
 		id: 5,
