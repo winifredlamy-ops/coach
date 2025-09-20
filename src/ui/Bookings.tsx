@@ -24,7 +24,7 @@ interface Booking {
 	location: string
 	storeName: string
 	storeAddress: string
-	status: 'pending' | 'confirmed' | 'completed' | 'cancelled'
+	status: 'pending' | 'confirmed' | 'completed' | 'cancelled' | 'updated'
 	price: number
 	note?: string
 }
@@ -68,12 +68,25 @@ const bookings: Booking[] = [
 		status: 'cancelled',
 		price: 120,
 		note: '临时有事取消'
+	},
+	{
+		id: 6,
+		courseName: '1对2导师体验课-室内60分钟',
+		studentName: '张建国',
+		date: '2024-09-18',
+		time: '16:00-17:30',
+		location: '3号场',
+		storeName: 'TT网球（福田店）',
+		storeAddress: '海淀区中关村大街32号',
+		status: 'updated',
+		price: 450,
+		note: '需要重点练习反手技术'
 	}
 ]
 
 export const Bookings: React.FC = () => {
 	const navigate = useNavigate()
-	const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled'>('all')
+	const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled' | 'updated'>('all')
 
 	const filteredBookings = (filter === 'all'
 		? bookings
@@ -86,6 +99,7 @@ export const Bookings: React.FC = () => {
 			case 'confirmed': return 'var(--primary)'
 			case 'completed': return 'var(--success)'
 			case 'cancelled': return 'var(--danger)'
+			case 'updated': return '#007AFF'
 			default: return 'var(--muted)'
 		}
 	}
@@ -96,6 +110,7 @@ export const Bookings: React.FC = () => {
 			case 'confirmed': return '已确认'
 			case 'completed': return '已完成'
 			case 'cancelled': return '已取消'
+			case 'updated': return '已更新'
 			default: return status
 		}
 	}
