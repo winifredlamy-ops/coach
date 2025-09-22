@@ -215,6 +215,10 @@
 	color: var(--fg);
 }
 
+.bookings-list .booking-card:nth-child(4) .booking-details .booking-detail:nth-child(2) {
+	color: red !important;
+}
+
 .empty-state {
 	text-align: center;
 	padding: 40px 20px;
