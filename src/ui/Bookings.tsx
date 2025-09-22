@@ -72,7 +72,7 @@ const bookings: Booking[] = [
 	{
 		id: 6,
 		courseName: '1对2导师体验课-室内60分钟',
-		studentName: '张建国',
+		studentName: '陈达文',
 		date: '2024-09-18',
 		time: '16:00-17:30',
 		location: '3号场',
