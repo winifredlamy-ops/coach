@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import './BookingDetail.css'
 
@@ -71,6 +71,8 @@ const IconX: React.FC = () => <Svg path="M18 6L6 18 M6 6l12 12" />
 export const BookingDetail: React.FC = () => {
 	const navigate = useNavigate()
 	const { id } = useParams()
+	const [showRejectModal, setShowRejectModal] = useState(false)
+	const [rejectReason, setRejectReason] = useState('')
 
 	// Find the booking by ID
 	const booking = bookings.find(b => b.id === parseInt(id || '0'))
@@ -82,7 +84,16 @@ export const BookingDetail: React.FC = () => {
 	}
 
 	const handleCancel = () => {
-		console.log('取消预约')
+		if (booking?.id === 6) {
+			setShowRejectModal(true)
+		} else {
+			console.log('取消预约')
+			navigate('/bookings')
+		}
+	}
+
+	const handleReject = () => {
+		console.log('拒绝更改，原因：', rejectReason || '无')
 		navigate('/bookings')
 	}
 
@@ -143,6 +154,23 @@ export const BookingDetail: React.FC = () => {
 					</button>
 				) : booking?.id === 5 ? (
 					<div></div>
+				) : booking?.id === 6 ? (
+					<>
+						<button
+							className="btn btn-primary confirm-btn"
+							onClick={handleConfirm}
+						>
+							<IconCheck />
+							确认更改
+						</button>
+						<button
+							className="btn btn-outline cancel-btn"
+							onClick={handleCancel}
+						>
+							<IconX />
+							拒绝更改
+						</button>
+					</>
 				) : (
 					<>
 						<button
@@ -167,6 +195,33 @@ export const BookingDetail: React.FC = () => {
 				<div className="placeholder">
 					<p className="muted">预约ID: {id}</p>
 					<p className="muted">其他功能开发中...</p>
+				</div>
+			)}
+
+			{showRejectModal && (
+				<div className="modal-overlay" onClick={() => setShowRejectModal(false)}>
+					<div className="modal-content" onClick={(e) => e.stopPropagation()}>
+						<textarea
+							className="reject-reason-input"
+							placeholder="请输入拒绝更改的原因（选填）..."
+							value={rejectReason}
+							onChange={(e) => setRejectReason(e.target.value)}
+						/>
+						<div className="modal-actions">
+							<button
+								className="btn btn-outline"
+								onClick={() => setShowRejectModal(false)}
+							>
+								取消
+							</button>
+							<button
+								className="btn btn-primary"
+								onClick={handleReject}
+							>
+								确认拒绝
+							</button>
+						</div>
+					</div>
 				</div>
 			)}
 		</div>
