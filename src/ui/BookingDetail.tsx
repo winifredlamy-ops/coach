@@ -42,6 +42,19 @@ const bookings = [
 		status: 'cancelled',
 		price: 120,
 		note: '临时有事取消'
+	},
+	{
+		id: 6,
+		courseName: '1对2导师体验课-室内60分钟',
+		studentName: '陈达文',
+		date: '2024-09-18',
+		time: '16:00-17:00',
+		location: '3号场',
+		storeName: 'TT网球（福田店）',
+		storeAddress: '海淀区中关村大街32号',
+		status: 'updated',
+		price: 450,
+		note: '需要重点练习反手技术'
 	}
 ]
 
