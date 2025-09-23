@@ -24,7 +24,7 @@ interface Booking {
 	location: string
 	storeName: string
 	storeAddress: string
-	status: 'pending' | 'confirmed' | 'completed' | 'cancelled' | 'updated'
+	status: 'pending' | 'confirmed' | 'completed' | 'cancelled' | 'updated' | 'ended'
 	price: number
 	note?: string
 }
@@ -81,17 +81,29 @@ const bookings: Booking[] = [
 		status: 'updated',
 		price: 450,
 		note: '需要重点练习反手技术'
-	}
+	},
+	{
+		id: 7,
+		courseName: '1对1私教课程-进阶训练',
+		studentName: '张三',
+		date: '2024-09-12',
+		time: '10:00-11:00',
+		location: '1号场',
+		storeName: 'TT网球（福田店）',
+		storeAddress: '海淀区中关村大街32号',
+		status: 'ended',
+		price: 500
+	},
 ]
 
 export const Bookings: React.FC = () => {
 	const navigate = useNavigate()
-	const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled' | 'updated'>('all')
+	const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled' | 'updated' | 'ended'>('all')
 
 	const filteredBookings = (filter === 'all'
 		? bookings
 		: bookings.filter(booking => booking.status === filter)
-	).slice(0, 4)
+	)
 
 	const getStatusColor = (status: string) => {
 		switch (status) {
@@ -100,6 +112,7 @@ export const Bookings: React.FC = () => {
 			case 'completed': return 'var(--success)'
 			case 'cancelled': return 'var(--danger)'
 			case 'updated': return '#007AFF'
+			case 'ended': return 'var(--muted)'
 			default: return 'var(--muted)'
 		}
 	}
@@ -111,6 +124,7 @@ export const Bookings: React.FC = () => {
 			case 'completed': return '已完成'
 			case 'cancelled': return '已取消'
 			case 'updated': return '已更新'
+			case 'ended': return '已结束'
 			default: return status
 		}
 	}
@@ -208,6 +222,22 @@ export const Bookings: React.FC = () => {
 								<div className="booking-detail">
 									<IconMapPin />
 									<span>{booking.location}</span>
+									{booking.status === 'ended' && (
+										<span
+											onClick={(e) => {
+												e.stopPropagation()
+												navigate(`/reviews/${booking.id}`)
+											}}
+											style={{
+												marginLeft: 'auto',
+												color: 'var(--primary)',
+												cursor: 'pointer',
+												fontSize: '14px'
+											}}
+										>
+											查看评价
+										</span>
+									)}
 								</div>
 							</div>
 

@@ -233,3 +233,27 @@
 	margin: 0;
 	font-size: 14px;
 }
+
+.booking-actions {
+	margin-top: 8px;
+	padding-top: 8px;
+	border-top: 1px solid var(--border);
+	display: flex;
+	justify-content: flex-end;
+}
+
+.review-button {
+	background: var(--primary);
+	color: white;
+	border: none;
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.review-button:hover {
+	background: var(--primary-dark, #0066cc);
+}

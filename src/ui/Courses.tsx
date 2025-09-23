@@ -24,7 +24,7 @@ interface Booking {
 	location: string
 	storeName: string
 	storeAddress: string
-	status: 'pending' | 'confirmed' | 'completed' | 'cancelled'
+	status: 'pending' | 'confirmed' | 'completed' | 'cancelled' | 'ended'
 	price: number
 	note?: string
 }
@@ -33,7 +33,7 @@ const bookings: Booking[] = []
 
 export const Courses: React.FC = () => {
 	const navigate = useNavigate()
-	const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled'>('all')
+	const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled' | 'ended'>('all')
 
 	const filteredBookings = (filter === 'all'
 		? bookings
@@ -46,6 +46,7 @@ export const Courses: React.FC = () => {
 			case 'confirmed': return 'var(--primary)'
 			case 'completed': return 'var(--success)'
 			case 'cancelled': return 'var(--danger)'
+			case 'ended': return 'var(--muted)'
 			default: return 'var(--muted)'
 		}
 	}
@@ -56,6 +57,7 @@ export const Courses: React.FC = () => {
 			case 'confirmed': return '已确认'
 			case 'completed': return '已完成'
 			case 'cancelled': return '已取消'
+			case 'ended': return '已结束'
 			default: return status
 		}
 	}
@@ -136,6 +138,21 @@ export const Courses: React.FC = () => {
 									{booking.note}
 								</div>
 							)}
+
+							{booking.status === 'ended' && (
+								<div className="booking-actions">
+									<button
+										className="review-button"
+										onClick={(e) => {
+											e.stopPropagation()
+											navigate(`/reviews/${booking.id}`)
+										}}
+									>
+										查看评价
+									</button>
+								</div>
+							)}
+
 						</div>
 					</div>
 				))}
