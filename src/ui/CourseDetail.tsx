@@ -59,10 +59,6 @@ export const CourseDetail: React.FC = () => {
 				</div>
 			</div>
 
-			<div className="placeholder">
-				<p className="muted">课程ID: {id}</p>
-				<p className="muted">其他功能开发中...</p>
-			</div>
 		</div>
 	)
 }

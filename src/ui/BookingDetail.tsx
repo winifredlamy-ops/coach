@@ -191,12 +191,6 @@ export const BookingDetail: React.FC = () => {
 				)}
 			</div>
 
-			{booking?.id !== 5 && (
-				<div className="placeholder">
-					<p className="muted">预约ID: {id}</p>
-					<p className="muted">其他功能开发中...</p>
-				</div>
-			)}
 
 			{showRejectModal && (
 				<div className="modal-overlay" onClick={() => setShowRejectModal(false)}>
