@@ -55,6 +55,24 @@ const bookings = [
 		status: 'updated',
 		price: 450,
 		note: '需要重点练习反手技术'
+	},
+	{
+		id: 7,
+		courseName: '1对1私教体验课-室内60分钟',
+		studentName: '张三',
+		date: '2024-09-12',
+		time: '10:00-11:00',
+		location: '1号场',
+		storeName: 'TT网球（福田店）',
+		storeAddress: '海淀区中关村大街32号',
+		status: 'ended',
+		price: 500,
+		rating: {
+			overall: 5,
+			pace: 4,
+			teachingStyle: 5,
+			patience: 5
+		}
 	}
 ]
 
@@ -121,8 +139,8 @@ export const BookingDetail: React.FC = () => {
 						<span className="value">13800138001</span>
 					</div>
 					<div className="detail-row">
-						<span className="label">上课时间:</span>
-						<span className="value">{booking?.date || '2024-09-16'} {booking?.time || '09:00-10:30'}</span>
+						<span className="label" style={booking?.status === 'updated' ? { color: '#007AFF', fontWeight: 'bold' } : {}}>上课时间:</span>
+						<span className="value" style={booking?.status === 'updated' ? { color: '#007AFF', fontWeight: 'bold' } : {}}>{booking?.date || '2024-09-16'} {booking?.time || '09:00-10:30'}</span>
 					</div>
 					<div className="detail-row">
 						<span className="label">上课地点:</span>
@@ -142,54 +160,154 @@ export const BookingDetail: React.FC = () => {
 				)}
 			</div>
 
-			<div className="actions">
-				{booking?.id === 2 ? (
-					<button
-						className="btn btn-primary confirm-btn"
-						onClick={handleConfirm}
-						style={{ width: '100%' }}
-					>
-						<IconCheck />
-						确认接受
-					</button>
-				) : booking?.id === 5 ? (
-					<div></div>
-				) : booking?.id === 6 ? (
-					<>
+			{booking?.status === 'ended' ? (
+				<div className="rating-section" style={{ padding: '20px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
+					<h3 style={{ marginBottom: '20px', color: '#333', fontSize: '18px' }}>学员评价</h3>
+
+					{/* 总评分 */}
+					<div style={{ marginBottom: '20px', padding: '16px', backgroundColor: '#fff', borderRadius: '8px', border: '1px solid #e0e0e0' }}>
+						<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+							<span style={{ fontSize: '16px', fontWeight: 'bold', color: '#333' }}>总体评价</span>
+							<div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+								<div style={{ display: 'flex', gap: '2px' }}>
+									{[1, 2, 3, 4, 5].map((star) => (
+										<span
+											key={star}
+											style={{
+												fontSize: '18px',
+												color: star <= (booking?.rating?.overall || 0) ? '#FFD700' : '#E0E0E0'
+											}}
+										>
+											★
+										</span>
+									))}
+								</div>
+								<span style={{ color: '#666', fontSize: '14px' }}>
+									{booking?.rating?.overall || 0}/5分
+								</span>
+							</div>
+						</div>
+					</div>
+
+					{/* 详细评分 */}
+					<div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+						<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+							<span style={{ fontSize: '14px', color: '#555' }}>上课节奏</span>
+							<div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+								<div style={{ display: 'flex', gap: '2px' }}>
+									{[1, 2, 3, 4, 5].map((star) => (
+										<span
+											key={star}
+											style={{
+												fontSize: '16px',
+												color: star <= (booking?.rating?.pace || 0) ? '#FFD700' : '#E0E0E0'
+											}}
+										>
+											★
+										</span>
+									))}
+								</div>
+								<span style={{ color: '#666', fontSize: '12px', minWidth: '35px' }}>
+									{booking?.rating?.pace || 0}/5
+								</span>
+							</div>
+						</div>
+
+						<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+							<span style={{ fontSize: '14px', color: '#555' }}>教学风格</span>
+							<div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+								<div style={{ display: 'flex', gap: '2px' }}>
+									{[1, 2, 3, 4, 5].map((star) => (
+										<span
+											key={star}
+											style={{
+												fontSize: '16px',
+												color: star <= (booking?.rating?.teachingStyle || 0) ? '#FFD700' : '#E0E0E0'
+											}}
+										>
+											★
+										</span>
+									))}
+								</div>
+								<span style={{ color: '#666', fontSize: '12px', minWidth: '35px' }}>
+									{booking?.rating?.teachingStyle || 0}/5
+								</span>
+							</div>
+						</div>
+
+						<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+							<span style={{ fontSize: '14px', color: '#555' }}>耐心程度</span>
+							<div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+								<div style={{ display: 'flex', gap: '2px' }}>
+									{[1, 2, 3, 4, 5].map((star) => (
+										<span
+											key={star}
+											style={{
+												fontSize: '16px',
+												color: star <= (booking?.rating?.patience || 0) ? '#FFD700' : '#E0E0E0'
+											}}
+										>
+											★
+										</span>
+									))}
+								</div>
+								<span style={{ color: '#666', fontSize: '12px', minWidth: '35px' }}>
+									{booking?.rating?.patience || 0}/5
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			) : (
+				<div className="actions">
+					{booking?.id === 2 ? (
 						<button
 							className="btn btn-primary confirm-btn"
 							onClick={handleConfirm}
+							style={{ width: '100%' }}
 						>
 							<IconCheck />
-							确认更改
+							确认接受
 						</button>
-						<button
-							className="btn btn-outline cancel-btn"
-							onClick={handleCancel}
-						>
-							<IconX />
-							拒绝更改
-						</button>
-					</>
-				) : (
-					<>
-						<button
-							className="btn btn-primary confirm-btn"
-							onClick={handleConfirm}
-						>
-							<IconCheck />
-							完成上课
-						</button>
-						<button
-							className="btn btn-outline cancel-btn"
-							onClick={handleCancel}
-						>
-							<IconX />
-							取消订单
-						</button>
-					</>
-				)}
-			</div>
+					) : booking?.id === 5 ? (
+						<div></div>
+					) : booking?.id === 6 ? (
+						<>
+							<button
+								className="btn btn-primary confirm-btn"
+								onClick={handleConfirm}
+							>
+								<IconCheck />
+								确认更改
+							</button>
+							<button
+								className="btn btn-outline cancel-btn"
+								onClick={handleCancel}
+							>
+								<IconX />
+								拒绝更改
+							</button>
+						</>
+					) : (
+						<>
+							<button
+								className="btn btn-primary confirm-btn"
+								onClick={handleConfirm}
+							>
+								<IconCheck />
+								完成上课
+							</button>
+							<button
+								className="btn btn-outline cancel-btn"
+								onClick={handleCancel}
+							>
+								<IconX />
+								取消订单
+							</button>
+						</>
+					)}
+				</div>
+			)}
 
 
 			{showRejectModal && (
