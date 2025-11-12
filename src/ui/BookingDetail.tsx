@@ -136,7 +136,7 @@ export const BookingDetail: React.FC = () => {
 					</div>
 					<div className="detail-row">
 						<span className="label">联系电话:</span>
-						<span className="value">13800138001</span>
+						<span className="value">138****8001</span>
 					</div>
 					<div className="detail-row">
 						<span className="label" style={booking?.status === 'updated' ? { color: '#007AFF', fontWeight: 'bold' } : {}}>上课时间:</span>
@@ -147,7 +147,7 @@ export const BookingDetail: React.FC = () => {
 						<span className="value">{booking?.storeName || 'TT网球（南山店）'}{booking?.location || '1号场地'}</span>
 					</div>
 					<div className="detail-row">
-						<span className="label">课程价格:</span>
+						<span className="label">课时价格:</span>
 						<span className="value price">¥{booking?.price || 120}</span>
 					</div>
 				</div>
@@ -261,14 +261,22 @@ export const BookingDetail: React.FC = () => {
 			) : (
 				<div className="actions">
 					{booking?.id === 2 ? (
-						<button
-							className="btn btn-primary confirm-btn"
-							onClick={handleConfirm}
-							style={{ width: '100%' }}
-						>
-							<IconCheck />
-							确认接受
-						</button>
+						<>
+							<button
+								className="btn btn-primary confirm-btn"
+								onClick={handleConfirm}
+							>
+								<IconCheck />
+								确认接受
+							</button>
+							<button
+								className="btn btn-outline cancel-btn"
+								onClick={handleCancel}
+							>
+								<IconX />
+								拒绝接受
+							</button>
+						</>
 					) : booking?.id === 5 ? (
 						<div></div>
 					) : booking?.id === 6 ? (
