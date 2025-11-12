@@ -39,25 +39,40 @@
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
-	background: var(--primary);
-	color: white;
+	background: #e5e7eb;
+	color: #6b7280;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 24px;
 }
 
-.coach-info h2 {
+.user-info {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.username {
 	font-size: 18px;
-	font-weight: 700;
-	margin: 0 0 4px 0;
+	font-weight: 600;
+	margin: 0;
 	color: var(--fg);
 }
 
-.coach-info p {
-	color: var(--muted);
-	font-size: 16px;
-	margin: 0;
+.edit-profile {
+	background: none;
+	border: none;
+	color: #10b981;
+	font-size: 14px;
+	padding: 0;
+	cursor: pointer;
+	text-align: left;
+	font-weight: 500;
+}
+
+.edit-profile:hover {
+	text-decoration: underline;
 }
 
 .contact-info {
@@ -86,42 +101,31 @@
 
 .stats-section {
 	margin-bottom: 24px;
-}
-
-.stats-section h3 {
-	font-size: 18px;
-	font-weight: 600;
-	margin: 0 0 16px 0;
-	color: var(--fg);
+	background: white;
+	padding: 16px;
+	border-radius: 12px;
 }
 
 .stats-grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	gap: 12px;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
 }
 
-.stat-item {
-	padding: 12px 8px;
+.stat-card {
 	text-align: center;
+	padding: 16px 8px;
 }
 
-.stat-icon {
-	color: var(--primary);
-	margin-bottom: 8px;
-	display: flex;
-	justify-content: center;
-}
-
-.stat-value {
-	font-size: 14px;
+.stat-value-large {
+	font-size: 28px;
 	font-weight: 700;
-	color: var(--fg);
-	margin-bottom: 4px;
+	color: #10b981;
+	margin-bottom: 8px;
 }
 
-.stat-label {
-	font-size: 10px;
+.stat-label-large {
+	font-size: 14px;
 	color: var(--muted);
 }
 
@@ -184,4 +188,34 @@
 .profile-footer p {
 	margin: 0;
 	font-size: 14px;
+}
+
+.membership-status {
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 12px 16px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 80px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.membership-status:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.membership-status svg {
+	color: var(--primary);
+	flex-shrink: 0;
+}
+
+.membership-status span {
+	flex: 1;
+	font-size: 14px;
+	color: var(--fg);
+	font-weight: 500;
 }

@@ -21,33 +21,31 @@ const IconChevronRight: React.FC = () => <Svg path="M9 18l6-6-6-6" />
 const IconClock: React.FC = () => <Svg path="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm5 11h-6V7h2v4h4Z" />
 const IconMessage: React.FC = () => <Svg path="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" />
 const IconHeadphones: React.FC = () => <Svg path="M3 14v-4a9 9 0 0 1 18 0v4M6 14h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2M18 14h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2" />
+const IconGift: React.FC = () => <Svg path="M20 12v10H4V12 M2 7h20v5H2z M12 22V7 M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+const IconVideo: React.FC = () => <Svg path="M23 7l-7 5 7 5V7z M16 5H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z" />
+const IconActivity: React.FC = () => <Svg path="M22 12h-4l-3 9L9 3l-3 9H2" />
+const IconFileText: React.FC = () => <Svg path="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8" />
+const IconInfo: React.FC = () => <Svg path="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z M12 16v-4 M12 8h.01" />
+const IconBook: React.FC = () => <Svg path="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5z M18 2v20" />
+const IconCreditCard: React.FC = () => <Svg path="M21 4H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z M1 10h22" />
 
 interface StatItem {
 	label: string
-	value: string
-	icon: React.ReactNode
+	value: string | number
 }
 
 const stats: StatItem[] = [
 	{
-		label: '本月收入',
-		value: '¥12,580',
-		icon: <IconDollar />
+		label: '个人卡',
+		value: 3
 	},
 	{
-		label: '本日课程',
-		value: '3节',
-		icon: <IconCalendar />
+		label: '企业卡',
+		value: 0
 	},
 	{
-		label: '本月课程',
-		value: '45节',
-		icon: <IconCalendar />
-	},
-	{
-		label: '学员总数',
-		value: '28人',
-		icon: <IconUser />
+		label: '培训课',
+		value: 0
 	}
 ]
 
@@ -68,9 +66,34 @@ export const Profile: React.FC = () => {
 			action: () => navigate('/profile/time-slot')
 		},
 		{
+			icon: <IconGift />,
+			label: '我的推荐',
+			action: () => console.log('我的推荐')
+		},
+		{
 			icon: <IconMessage />,
 			label: '我的消息',
 			action: () => console.log('我的消息')
+		},
+		{
+			icon: <IconVideo />,
+			label: '我的录像',
+			action: () => console.log('我的录像')
+		},
+		{
+			icon: <IconActivity />,
+			label: '我的活动',
+			action: () => console.log('我的活动')
+		},
+		{
+			icon: <IconBook />,
+			label: '关注公众号',
+			action: () => console.log('关注公众号')
+		},
+		{
+			icon: <IconFileText />,
+			label: '协议与条款',
+			action: () => console.log('协议与条款')
 		},
 		{
 			icon: <IconHeadphones />,
@@ -78,9 +101,9 @@ export const Profile: React.FC = () => {
 			action: () => console.log('联系客服')
 		},
 		{
-			icon: <IconHelpCircle />,
-			label: '帮助与反馈',
-			action: () => console.log('帮助')
+			icon: <IconInfo />,
+			label: '关于',
+			action: () => console.log('关于')
 		},
 		{
 			icon: <IconLogOut />,
@@ -100,26 +123,20 @@ export const Profile: React.FC = () => {
 					<div className="avatar">
 						<IconUser />
 					</div>
-					<div className="coach-info">
-						<h2>张教练</h2>
-						<p>资深网球教练</p>
+					<div className="user-info">
+						<h2 className="username">张教练</h2>
+						<button className="edit-profile">编辑资料</button>
 					</div>
 				</div>
 			</div>
 
 
 			<div className="stats-section">
-				<h3>数据统计</h3>
 				<div className="stats-grid">
 					{stats.map((stat, index) => (
-						<div key={index} className="stat-item card">
-							<div className="stat-icon">
-								{stat.icon}
-							</div>
-							<div className="stat-content">
-								<div className="stat-value">{stat.value}</div>
-								<div className="stat-label">{stat.label}</div>
-							</div>
+						<div key={index} className="stat-card">
+							<div className="stat-value-large">{stat.value}</div>
+							<div className="stat-label-large">{stat.label}</div>
 						</div>
 					))}
 				</div>
@@ -144,6 +161,12 @@ export const Profile: React.FC = () => {
 						</button>
 					))}
 				</div>
+			</div>
+
+			<div className="membership-status">
+				<IconCreditCard />
+				<span>开机(导师月卡2025/10/30～2025/11/28)</span>
+				<IconChevronRight />
 			</div>
 
 		</div>
